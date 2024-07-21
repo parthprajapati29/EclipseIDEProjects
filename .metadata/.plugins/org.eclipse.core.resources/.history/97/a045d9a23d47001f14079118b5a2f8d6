@@ -1,0 +1,33 @@
+package com.TestNG;
+
+import java.io.File;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class fileuploadceck {
+
+	public static void main(String[] args) {
+		WebDriver w = new ChromeDriver();
+		w.get("https://cloudconvert.com/");
+		//w.get("https://omayo.blogspot.com/");
+		w.manage().window().maximize();
+		//w.findElement(By.id("uploadfile")).sendKeys("C:\\Users\\Parth\\Downloads\\Parth Prajapati- wordfile.docx");
+		
+		File uploadFile = new File("C:\\Users\\Parth\\Downloads\\Parth Prajapati- wordfile.docx");
+		
+		WebElement fileinput = w.findElement(By.xpath("//*[@class=\"btn-group dropdown\"]/button"));
+		
+		fileinput.sendKeys("C:\\Users\\Parth\\Downloads\\Parth Prajapati- wordfile.docx");
+		
+		
+		
+		
+		
+	}
+
+
+
+}

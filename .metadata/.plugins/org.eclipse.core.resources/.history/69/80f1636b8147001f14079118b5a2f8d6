@@ -1,0 +1,36 @@
+package com.testngpolymorphism;
+
+import java.io.File;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.io.FileHandler;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public abstract class SearchTest extends BaseTest {
+	WebDriver w;
+	
+	protected abstract String getSearchUrl();
+	protected abstract String getSearchBoxName();
+	
+	@Test (alwaysRun = true)
+	public void testSearch() {
+		w.get(getSearchUrl());
+		WebElement searchBox = w.findElement(By.name(getSearchBoxName()));
+        searchBox.sendKeys("Selenium WebDriver");
+        searchBox.submit();
+        
+        Assert.assertTrue(w.getTitle().contains("Selenium WebDriver"));
+	}
+}

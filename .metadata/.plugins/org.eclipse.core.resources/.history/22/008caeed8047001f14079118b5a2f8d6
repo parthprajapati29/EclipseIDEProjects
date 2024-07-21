@@ -1,0 +1,23 @@
+package com.testngpolymorphism;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public abstract class SearchTest extends BaseTest {
+	WebDriver w;
+	protected abstract String getSearchUrl();
+	protected abstract String getSearchBoxName();
+	
+	@Test (alwaysRun = true)
+	public void testSearch() {
+		w.get(getSearchUrl());
+		WebElement searchBox = w.findElement(By.name(getSearchBoxName()));
+        searchBox.sendKeys("Selenium WebDriver");
+        searchBox.submit();
+        
+        Assert.assertTrue(w.getTitle().contains("Selenium WebDriver"));
+	}
+}

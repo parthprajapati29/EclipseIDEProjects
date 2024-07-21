@@ -1,0 +1,83 @@
+package com.TestNG;
+
+import org.checkerframework.checker.units.qual.s;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class AssertionFrontAccouting {
+	WebDriver w;
+	
+	@DataProvider
+	
+	public String[][] getdata(){
+		
+		String[][] data = new String[4][2];
+		
+		data[0][0] = "demouser";
+		data[0][1] = "password";
+		
+		
+		data[1][0] = "demouser1";
+		data[1][1] = "password1";
+		
+		data[2][0] = "demouser2";
+		data[2][1] = "password2";
+				
+		data[3][0] = "demouser3";
+		data[3][1] = "password3";
+		
+		return data;
+	}
+	
+	
+	@BeforeClass
+	public void launchDriver() {
+		w = new ChromeDriver();
+	}
+	
+	@BeforeMethod
+	public void openurl() {
+		w.get("https://demo.frontaccounting.eu/index.php");
+	}
+	
+	@Test (dataProvider = "getdata")
+	public void login(String username, String pass) {
+		SoftAssert soft = new SoftAssert();
+		
+		w.findElement(By.name("user_name_entry_field")).clear();
+		w.findElement(By.name("user_name_entry_field")).sendKeys(username);
+
+		w.findElement(By.name("password")).clear();
+		w.findElement(By.name("password")).sendKeys(pass);
+		w.findElement(By.name("SubmitUser")).click();
+		
+		String ExpText = "Main Menu";
+		String acttext = w.getTitle();
+		
+		//Assert.assertEquals(acttext, ExpText);
+		soft.assertEquals(acttext, ExpText);
+		
+	
+	}
+	
+	@AfterMethod (alwaysRun = true)
+	public void logout() throws InterruptedException {
+		w.findElement(By.linkText("Logout")).click();
+		
+	}
+
+	@AfterClass
+	public void CloseDriver() {
+		w.quit();
+	}
+	
+}

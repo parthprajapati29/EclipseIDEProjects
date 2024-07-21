@@ -1,0 +1,17 @@
+package com.TestNG;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class fileuploadceck {
+
+	public static void main(String[] args) {
+		WebDriver w = new ChromeDriver();
+		w.get("https://fileport.io/");
+		w.manage().window().maximize();
+		w.findElement(By.id("upload-button-container")).sendKeys("C:\\Users\\Parth\\Downloads\\Parth Prajapati- wordfile.docx");
+	}
+
+}

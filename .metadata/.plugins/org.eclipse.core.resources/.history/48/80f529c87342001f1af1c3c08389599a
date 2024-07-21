@@ -1,0 +1,5 @@
+package AbstractionOops;
+
+public abstract class Vehicle {
+	abstract void go();
+}

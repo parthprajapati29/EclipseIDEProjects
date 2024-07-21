@@ -1,0 +1,15 @@
+package OopsConcepts;
+
+
+class Animal{
+	public void makesound() {
+		System.out.println("The animal makes sound");
+	} 
+}
+
+
+class cat extends Animal {
+	public void makesound() {
+		System.out.println("Meow");
+	}
+}

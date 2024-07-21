@@ -1,0 +1,7 @@
+package com.testngpolymorphism;
+
+import org.testng.annotations.DataProvider;
+
+public class dataproviderclass {
+
+}

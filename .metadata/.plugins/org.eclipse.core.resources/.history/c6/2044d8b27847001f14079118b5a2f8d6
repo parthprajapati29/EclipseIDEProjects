@@ -1,0 +1,11 @@
+package com.testngpolymorphism;
+
+public class BingSearchTest {
+	 protected String getSearchUrl() {
+	    return "https://www.bing.com";
+	 }
+
+	 protected String getSearchBoxName() {
+	    return "q";
+	 }
+}

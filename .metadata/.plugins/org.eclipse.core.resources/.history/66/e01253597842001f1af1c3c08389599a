@@ -1,0 +1,23 @@
+package testRunner;
+
+import org.junit.runner.RunWith;
+import org.testng.annotations.DataProvider;
+
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+
+@RunWith(Cucumber.class)
+@io.cucumber.testng.CucumberOptions(
+		features = "C://Users//Parth//eclipse-workspace//SeleniumCucumberProject//features//orange.feature",
+		glue = "stepDefinations"
+)
+
+public class TestRunner extends AbstractTestNGCucumberTests{
+	@Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
+
+}

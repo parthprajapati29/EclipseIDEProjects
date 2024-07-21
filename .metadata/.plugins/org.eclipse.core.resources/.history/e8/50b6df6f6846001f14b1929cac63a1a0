@@ -1,0 +1,30 @@
+package com.TestNG;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+
+public class AssertionInTestNG {
+	WebDriver w;
+	
+	@Test
+	public void Flipkart() throws Exception{
+		w = new ChromeDriver();
+		w.get("https://www.flipkart.com/");
+		Thread.sleep(1000);
+		w.findElement(By.partialLinkText("Cart")).click();
+
+	    String expText = "Shopping Cart | Flipkart.com";
+	    String actText = w.getTitle();
+	    
+	    Assert.assertEquals(actText, expText);
+	    
+	    String expUrl = "https://www.flipkart.com/viewcart?exploreMode=true&preference=FLIPKART";
+	    String actUrl = w.getCurrentUrl();
+	    
+	    Assert.assertEquals(actUrl, expUrl);
+	}
+
+}

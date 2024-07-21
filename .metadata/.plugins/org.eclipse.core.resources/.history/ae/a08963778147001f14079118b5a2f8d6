@@ -1,0 +1,22 @@
+package com.testngpolymorphism;
+
+import java.io.File;
+
+
+
+public abstract class SearchTest extends BaseTest {
+	WebDriver w;
+	
+	protected abstract String getSearchUrl();
+	protected abstract String getSearchBoxName();
+	
+	@Test (alwaysRun = true)
+	public void testSearch() {
+		w.get(getSearchUrl());
+		WebElement searchBox = w.findElement(By.name(getSearchBoxName()));
+        searchBox.sendKeys("Selenium WebDriver");
+        searchBox.submit();
+        
+        Assert.assertTrue(w.getTitle().contains("Selenium WebDriver"));
+	}
+}

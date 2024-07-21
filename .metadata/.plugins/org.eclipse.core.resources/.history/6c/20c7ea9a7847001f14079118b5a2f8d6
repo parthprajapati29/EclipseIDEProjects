@@ -1,0 +1,11 @@
+package com.testngpolymorphism;
+
+public class GoogleSearchTest {
+	protected String getSearchUrl() {
+        return "https://www.google.com";
+    }
+
+    protected String getSearchBoxName() {
+        return "q";
+    }
+}
