@@ -34,6 +34,5 @@ public class letscheck extends BaseTest{
 		String act = w.getTitle();
 		
 		Assert.assertEquals(act, exp);		
-		System.out.println();
 	}
 }
