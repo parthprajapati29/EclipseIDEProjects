@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="cucumber"/>
+		<item key="selection" value="test"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="test"/>
+			<item value="getSearchBoxName()"/>
+			<item value="getSearchBoxName"/>
 			<item value="cucumber"/>
 			<item value="logout"/>
 			<item value="salesOrderEntry"/>
@@ -20,9 +23,6 @@
 			<item value="product2addtocart"/>
 			<item value="addtocart1"/>
 			<item value="productopen2"/>
-			<item value="closecurrenttab"/>
-			<item value="/div/div[3]/div/div/div[2]/div/ul/li"/>
-			<item value="I open orangehrm homepage"/>
 		</list>
 		<list key="replacehistory">
 		</list>
